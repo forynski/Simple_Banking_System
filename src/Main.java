@@ -9,22 +9,23 @@ public class Main {
         Scanner scanner = new Scanner(System.in);
         int menu = scanner.nextInt();
 
-        switch (menu) {
-            case 1:
+        while (true) {
+            if (menu == 1) {
                 long generateCardNumber = (long)(Math.random()*100000_00000L + 400000_0000000000L);
                 System.out.println("Your card has been created");
                 System.out.println("Your card number:" + "\n" + generateCardNumber);
-
                 int generatePIN = (int)(Math.random()*9000)+1000;
                 System.out.println("Your card PIN:" + "\n" + generatePIN);
+                menu = scanner.nextInt();
 
-                break;
-            case 2:
+            } else if (menu == 2) {
                 System.out.println("Logging into account");
-                break;
-            case 0:
+                menu = scanner.nextInt();
+
+            } else if (menu == 0) {
                 System.out.println("Exiting...");
                 break;
+            }
         }
         scanner.close();
     }
