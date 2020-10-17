@@ -1,7 +1,5 @@
 package banking;
 
-import java.math.BigInteger;
-import java.util.Random;
 import java.util.Scanner;
 
 public class Main {
