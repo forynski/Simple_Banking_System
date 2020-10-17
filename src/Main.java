@@ -13,7 +13,10 @@ public class Main {
             case 1:
                 long generateCardNumber = (long)(Math.random()*100000_00000L + 400000_0000000000L);
                 System.out.println("Your card has been created");
-                System.out.println("Your card number: " + "\n" + generateCardNumber);
+                System.out.println("Your card number:" + "\n" + generateCardNumber);
+
+                int generatePIN = (int)(Math.random()*9000)+1000;
+                System.out.println("Your card PIN:" + "\n" + generatePIN);
 
                 break;
             case 2:
@@ -23,10 +26,6 @@ public class Main {
                 System.out.println("Exiting...");
                 break;
         }
-
-//        long generateCardNumber = (long)(Math.random()*100000_00000L + 400000_0000000000L);
-//        System.out.println(generateCardNumber);
-
-
+        scanner.close();
     }
 }
