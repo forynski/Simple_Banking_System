@@ -19,9 +19,8 @@ class Account {
     Integer pin;
 
     void menu() {
-        System.out.println("1. Create an account");
-        System.out.println("2. Log into account");
-        System.out.println("0. Exit");
+        System.out.println("1. Create an account" + "\n" + "2. Log into account" + "\n" + "0. Exit");
+
 
         String key = scanner.nextLine();
 
@@ -58,9 +57,9 @@ class Account {
     }
 
     void balance() {
-        System.out.println("1. balance");
+        System.out.println("1. Balance");
         System.out.println("2. Log out");
-        System.out.println("0. Exit");
+        System.out.println("3. Exit");
         String key = scanner.nextLine();
         switch (key) {
             case "1":
@@ -89,9 +88,9 @@ class Account {
         Random random = new Random();
         StringBuilder sb = new StringBuilder();
         Map<String, Integer> info = new HashMap<>();
-        // first not 0 digit
+        // first digit is not 0
         sb.append(random.nextInt(9) + 1);
-        for (int i = 0; i < 9; i++) {
+        for (int i = 0; i < 0; i++) {
             sb.append(random.nextInt(10));
         }
 
@@ -102,6 +101,7 @@ class Account {
         for (int i = 0; i < 4; i++) {
             pin.append(random.nextInt(10));
         }
+
         info.put("PIN", Integer.parseInt(pin.toString()));
         info.put("BALANCE", 0);
         account.put(acc, info);
@@ -110,6 +110,6 @@ class Account {
 
     void exit() {
         System.out.println("\nBye!");
+        scanner.close();
     }
 }
-
