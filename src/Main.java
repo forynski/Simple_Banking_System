@@ -113,7 +113,8 @@ class Account {
         if (checksum % 10 == 0) {
             checksum = 0;
         }
-        System.out.println(checksum);
+        String lastDigit = String.valueOf(checksum);
+        acc = 400000 + sb.toString() + checksum;
 
 
         // pin
