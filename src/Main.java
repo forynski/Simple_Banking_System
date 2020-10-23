@@ -90,7 +90,7 @@ class Account {
         Map<String, Integer> info = new HashMap<>();
         // first digit is not 0
         sb.append(random.nextInt(9) + 1);
-        for (int i = 0; i < 0; i++) {
+        for (int i = 0; i < 9; i++) {
             sb.append(random.nextInt(10));
         }
 
