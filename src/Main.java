@@ -90,12 +90,31 @@ class Account {
         Map<String, Integer> info = new HashMap<>();
         // first digit is not 0
         sb.append(random.nextInt(9) + 1);
-        for (int i = 0; i < 9; i++) {
+        for (int i = 0; i < 8; i++) {
             sb.append(random.nextInt(10));
         }
 
         acc = 400000 + sb.toString();
         StringBuilder pin = new StringBuilder();
+
+        // Luhn algorithm
+        int sum = 0;
+        for (int i = 0; i < acc.length(); i++) {
+            int digit = Character.getNumericValue(acc.charAt(i));
+            if (i % 2 == 0) {
+                digit *= 2;
+            }
+            if (digit > 9) {
+                digit -= 9;
+            }
+            sum += digit;
+        }
+        int checksum = 10 - sum % 10;
+        if (checksum % 10 == 0) {
+            checksum = 0;
+        }
+        System.out.println(checksum);
+
 
         // pin
         for (int i = 0; i < 4; i++) {
