@@ -98,6 +98,23 @@ class Account {
         StringBuilder pin = new StringBuilder();
 
         // Luhn algorithm
+        int checksum = getChecksum();
+        String lastDigit = String.valueOf(checksum);
+        acc = 400000 + sb.toString() + checksum;
+
+
+        // pin
+        for (int i = 0; i < 4; i++) {
+            pin.append(random.nextInt(10));
+        }
+
+        info.put("PIN", Integer.parseInt(pin.toString()));
+        info.put("BALANCE", 0);
+        account.put(acc, info);
+        return acc;
+    }
+
+    private int getChecksum() {
         int sum = 0;
         for (int i = 0; i < acc.length(); i++) {
             int digit = Character.getNumericValue(acc.charAt(i));
@@ -113,19 +130,7 @@ class Account {
         if (checksum % 10 == 0) {
             checksum = 0;
         }
-        String lastDigit = String.valueOf(checksum);
-        acc = 400000 + sb.toString() + checksum;
-
-
-        // pin
-        for (int i = 0; i < 4; i++) {
-            pin.append(random.nextInt(10));
-        }
-
-        info.put("PIN", Integer.parseInt(pin.toString()));
-        info.put("BALANCE", 0);
-        account.put(acc, info);
-        return acc;
+        return checksum;
     }
 
     void exit() {
