@@ -11,15 +11,22 @@ import java.util.Scanner;
 
 
 public class Main {
+
+    static String fileName;
+
     public static void main(String[] args) {
+
+        fileName = "card.s3db";
+
         createNewTable();
         Account account = new Account();
         account.menu();
+
     }
 
     private static void createNewTable() {
         // SQLite connection string
-        String url = "jdbc:sqlite:card.db";
+        String url = "jdbc:sqlite:" + fileName;
 
         // SQL statement for creating a new table
         String sql = "CREATE TABLE IF NOT EXISTS card (\n"
