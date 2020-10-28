@@ -30,9 +30,10 @@ public class Main {
 
         // SQL statement for creating a new table
         String sql = "CREATE TABLE IF NOT EXISTS card (\n"
-                + "	id integer PRIMARY KEY,\n"
-                + "	name text NOT NULL,\n"
-                + "	capacity real\n"
+                + "	id INTEGER NOT NULL PRIMARY KEY,\n"
+                + "	number TEXT,\n"
+                + "	pin TEXT,\n"
+                + " balance INTEGER DEFAULT 0"
                 + ");";
 
         try (Connection conn = DriverManager.getConnection(url);
