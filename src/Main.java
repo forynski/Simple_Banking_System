@@ -135,7 +135,6 @@ class Account {
     public static int luhnAlgLastNumber(String acc) {
         int sum = 0;
         char ch;
-        String s;
         int[] arr = new int[acc.length()];
         for (int i = 0; i < acc.length(); i++) {
             ch = acc.charAt(i);
