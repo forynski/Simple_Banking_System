@@ -1,9 +1,6 @@
 package banking;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Random;
@@ -144,6 +141,22 @@ public class Main {
             info.put("PIN", Integer.parseInt(pin.toString()));
             info.put("BALANCE", 0);
             account.put(acc, info);
+            String url = "jdbc:sqlite:" + fileName;
+            String sql = "INSERT INTO card (number, pin) VALUES(?,?)";
+
+            try (Connection conn = DriverManager.getConnection(url);
+                 PreparedStatement pstmt = conn.prepareStatement(sql)) {
+
+                // Setting parameters
+
+                pstmt.setString(1, acc);
+//                pstmt.setInt(2, pin);
+                pstmt.executeUpdate();
+
+            } catch (SQLException e) {
+                System.out.println(e.getMessage());
+
+            }
             return acc;
         }
 
