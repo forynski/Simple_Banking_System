@@ -89,8 +89,11 @@ public class Main {
 
         void balance() {
             System.out.println("1. Balance");
+            System.out.println("2. Add income");
+            System.out.println("3. Do transfer");
+            System.out.println("4. Close account");
             System.out.println("5. Log out");
-            System.out.println("3. Exit");
+            System.out.println("0. Exit");
             String key = scanner.nextLine();
             switch (key) {
                 case "1":
@@ -98,9 +101,9 @@ public class Main {
                     balance();
                     break;
                 case "2":
-                    System.out.println("Enter income: ");
-                    balance = Integer.parseInt(scanner.nextLine());
-
+                    balanceAdd();
+                    balance();
+                    break;
                 case "3":
                     // do transfer
                 case "4":
@@ -123,6 +126,9 @@ public class Main {
         }
 
         public void balanceAdd() {
+            System.out.println("Enter income: ");
+            balance = Integer.parseInt(scanner.nextLine());
+
 
         }
 
