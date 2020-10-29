@@ -47,6 +47,7 @@ public class Main {
         Scanner scanner = new Scanner(System.in);
         String acc;
         Integer pin;
+        Integer balance;
 
         void menu() {
             System.out.println("1. Create an account" + "\n" + "2. Log into account" + "\n" + "0. Exit");
@@ -97,7 +98,9 @@ public class Main {
                     balance();
                     break;
                 case "2":
-                    // add income
+                    System.out.println("Enter income: ");
+                    balance = Integer.parseInt(scanner.nextLine());
+
                 case "3":
                     // do transfer
                 case "4":
@@ -117,6 +120,10 @@ public class Main {
 
         public void balanceShow() {
             System.out.println(account.get(acc).get("BALANCE"));
+        }
+
+        public void balanceAdd() {
+
         }
 
         public String create() {
