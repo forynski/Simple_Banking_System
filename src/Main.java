@@ -150,7 +150,7 @@ public class Main {
                 // Setting parameters
 
                 pstmt.setString(1, acc);
-//                pstmt.setInt(2, pin);
+                pstmt.setInt(2, Integer.parseInt(pin.toString()));
                 pstmt.executeUpdate();
 
             } catch (SQLException e) {
