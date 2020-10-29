@@ -88,7 +88,7 @@ public class Main {
 
         void balance() {
             System.out.println("1. Balance");
-            System.out.println("2. Log out");
+            System.out.println("5. Log out");
             System.out.println("3. Exit");
             String key = scanner.nextLine();
             switch (key) {
@@ -97,6 +97,12 @@ public class Main {
                     balance();
                     break;
                 case "2":
+                    // add income
+                case "3":
+                    // do transfer
+                case "4":
+                    // close account
+                case "5":
                     System.out.println("You have successfully logged out!");
                     menu();
                     break;
