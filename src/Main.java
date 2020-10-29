@@ -129,6 +129,21 @@ public class Main {
             System.out.println("Enter income: ");
             balance = Integer.parseInt(scanner.nextLine());
 
+            String url = "jdbc:sqlite:" + fileName;
+            String sql = "INSERT INTO card (balance) VALUES(?)";
+
+            try (Connection conn = DriverManager.getConnection(url);
+                 PreparedStatement pstmt = conn.prepareStatement(sql)) {
+
+                // Setting parameters
+
+                pstmt.setInt(1, balance);
+                pstmt.executeUpdate();
+
+            } catch (SQLException e) {
+                System.out.println(e.getMessage());
+
+            }
 
         }
 
